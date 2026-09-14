@@ -4,6 +4,8 @@ set -e
 V=$(date +%s)
 IG_J="https://www.instagram.com/sajaira.jewelry/"
 IG_C="https://www.instagram.com/sajaira.clothing/"
+TT="https://www.tiktok.com/@sajaira04"
+FB="https://www.facebook.com/SajairaJewelry/"
 ICO_ARROW='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg>'
 ICO_LEFT='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>'
 ICO_RIGHT='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3l5 5-5 5"/></svg>'
@@ -37,13 +39,12 @@ header() { # $1 active page key
 local a=$1
 cat <<EOF
 <header class="site-header">
-  <div class="announce"><span class="msg"><strong>Free shipping</strong> across the US over \$100<span class="msg-l"> &nbsp;·&nbsp; DM on Instagram to order</span></span><button class="close" aria-label="Dismiss">$ICO_X</button></div>
+  <div class="announce"><span class="msg"><strong>Free shipping</strong> on orders over \$100<span class="msg-l"> &nbsp;·&nbsp; \$5 flat rate otherwise &nbsp;·&nbsp; DM on Instagram to order</span></span><button class="close" aria-label="Dismiss">$ICO_X</button></div>
   <div class="nav-card">
     <button class="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
     <nav class="nav-links">
       <a href="jewelry.html"$( [ "$a" = jewelry ] && echo ' class="active"')>Jewelry</a>
       <a href="clothing.html"$( [ "$a" = clothing ] && echo ' class="active"')>Clothing</a>
-      <a href="index.html#journal">Journal</a>
     </nav>
     <a class="brand" href="index.html">Sajaira</a>
     <div class="nav-utils">
@@ -61,8 +62,8 @@ cat <<EOF
       <a href="index.html">Home</a>
       <a href="jewelry.html">Jewelry</a>
       <a href="clothing.html">Clothing</a>
-      <a href="index.html#journal">Journal</a>
       <a href="about.html">About</a>
+      <a href="policy.html">Policies</a>
     </nav>
     <div class="small">
       <a href="$IG_J" target="_blank" rel="noopener">@sajaira.jewelry</a>
@@ -103,6 +104,39 @@ connect_ig() { cat <<EOF
 EOF
 }
 
+# review IMG QUOTE SOURCE
+review() { cat <<EOF
+      <a class="review reveal" href="$IG_J" target="_blank" rel="noopener">
+        <figure><img src="images/reviews/$1.jpg" alt="Customer review" loading="lazy"></figure>
+        <p>&ldquo;$2&rdquo;</p>
+        <div class="stars">★★★★★</div>
+        <small>$3</small>
+      </a>
+EOF
+}
+
+reviews_section() { cat <<EOF
+<section class="block" id="reviews">
+  <div class="carousel-wrap">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">Customer love</p><h2 class="title-lg">What our customers say</h2></div>
+      <div class="arrows"><button class="arrow-btn c-prev" aria-label="Previous">$ICO_LEFT</button><button class="arrow-btn c-next" aria-label="Next">$ICO_RIGHT</button></div>
+    </div>
+    <div class="carousel reviews">
+$(review quality "The product quality is very good. I am happy with my purchase. Excellent service and fast delivery!" "Instagram DM")
+$(review eid-bangles "I wore your glass bangles on Eid day — so pretty." "Instagram story")
+$(review unboxing "I had a great experience with this jewelry page. The designs are elegant, unique, and exactly as shown in the pictures." "@emu_ahmed02")
+$(review necklace-set "Thank you, it's beautiful." "Instagram DM")
+$(review gifts "Got gifts from @sajaira.jewelry!" "Instagram story")
+$(review order-box "Guys, follow my sister-in-law's small business @sajaira.jewelry." "Instagram story")
+$(review necklace-sold "Please support my sister's small business — your support means a lot." "@__ekram00__")
+$(review dupatta "Thank you for sharing ❤️" "@l0ve.leena")
+    </div>
+  </div>
+</section>
+EOF
+}
+
 footer() { cat <<EOF
 <footer class="site-footer">
   <div class="footer-card">
@@ -112,19 +146,19 @@ footer() { cat <<EOF
         <p>Deshi jewelry and designer clothing, handpicked in New York and shipped across the United States. Light up your world.</p>
         <div class="socials">
           <a href="$IG_J" target="_blank" rel="noopener" aria-label="Instagram">$ICO_IG</a>
-          <a href="#" aria-label="TikTok">$ICO_TT</a>
-          <a href="#" aria-label="Facebook">$ICO_FB</a>
+          <a href="$TT" target="_blank" rel="noopener" aria-label="TikTok">$ICO_TT</a>
+          <a href="$FB" target="_blank" rel="noopener" aria-label="Facebook">$ICO_FB</a>
         </div>
       </div>
       <div><h4>Shop</h4><ul><li><a href="jewelry.html">Jewelry</a></li><li><a href="clothing.html">Clothing</a></li><li><a href="clothing.html#kids">Kids</a></li><li><a href="index.html#occasions">Occasions</a></li><li><a href="index.html#arrivals">New Arrivals</a></li></ul></div>
-      <div><h4>Help</h4><ul><li><a href="about.html#contact">Contact</a></li><li><a href="#">Delivery</a></li><li><a href="#">Returns</a></li><li><a href="#">Size Guide</a></li><li><a href="#">FAQs</a></li></ul></div>
-      <div><h4>About</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="index.html#journal">Journal</a></li><li><a href="index.html#reels">Live Sales</a></li><li><a href="#">Wholesale</a></li></ul></div>
-      <div><h4>Follow</h4><ul><li><a href="$IG_J" target="_blank" rel="noopener">@sajaira.jewelry</a></li><li><a href="$IG_C" target="_blank" rel="noopener">@sajaira.clothing</a></li><li><a href="#">TikTok</a></li><li><a href="#">Facebook</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="about.html#contact">Contact</a></li><li><a href="about.html#payment">How to Pay</a></li><li><a href="policy.html#shipping">Shipping</a></li><li><a href="policy.html#returns">Returns &amp; Exchange</a></li><li><a href="policy.html#faq">FAQs</a></li></ul></div>
+      <div><h4>About</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="index.html#journal">Journal</a></li><li><a href="index.html#reels">Live Sales</a></li><li><a href="index.html#reviews">Reviews</a></li></ul></div>
+      <div><h4>Follow</h4><ul><li><a href="$IG_J" target="_blank" rel="noopener">@sajaira.jewelry</a></li><li><a href="$IG_C" target="_blank" rel="noopener">@sajaira.clothing</a></li><li><a href="$TT" target="_blank" rel="noopener">TikTok @sajaira04</a></li><li><a href="$FB" target="_blank" rel="noopener">Facebook</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <div class="legal">
         <span>&copy; 2026 Sajaira &middot; New York</span>
-        <a href="#">Terms &amp; Conditions</a><a href="#">Privacy Policy</a><a href="#">Cookies</a>
+        <a href="policy.html#terms">Terms &amp; Conditions</a><a href="policy.html#returns">Return Policy</a><a href="policy.html#privacy">Privacy Policy</a>
       </div>
       <div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>APPLE PAY</span><span>PAYPAL</span><span>ZELLE</span></div>
     </div>
@@ -335,17 +369,7 @@ $(reels_section reels "Live on Instagram" "Latest Reels" "saree-pink-model|Saree
   <div class="marquee-caption reveal"><a class="link-u" href="$IG_J" target="_blank" rel="noopener">Join the live sale</a></div>
 </section>
 
-<section class="block">
-  <div class="testimonial">
-    <div class="panel reveal">
-      <p class="eyebrow">Customer love</p>
-      <div class="stars" style="margin-top:14px">★★★★★</div>
-      <blockquote>&ldquo;Got the parcel — thank you soooo much for the bangles. Everything was perfect.&rdquo;</blockquote>
-      <cite>— A Sajaira customer, via Instagram DM</cite>
-    </div>
-    <figure class="reveal" data-delay="1"><img src="images/brand/customer-review.jpg" alt="Customer review screenshot" loading="lazy"></figure>
-  </div>
-</section>
+$(reviews_section)
 
 <section class="block" style="padding-top:0">
   <div class="story">
@@ -390,7 +414,7 @@ cat <<EOF
   <img src="images/brand/bangles-wrist.jpg" alt="">
   <div class="inner">
     <div><p class="eyebrow light">Collection 01</p><h1>Jewelry</h1><p class="sub">Glass bangles in every colour, chandelier earrings and cocktail rings — the sparkle of home, delivered to your door.</p></div>
-    <span class="count">12 pieces &middot; DM to order</span>
+    <span class="count">13 pieces &middot; DM to order</span>
   </div>
 </section>
 
@@ -411,6 +435,7 @@ $(product "Gemstone Ring Edit" "\$24" images/jewelry/06.jpg images/jewelry/04.jp
 $(product "Crystal Statement Ring" "\$26" images/jewelry/04.jpg images/jewelry/06.jpg '<i style="--c:#e8e8e8"></i>' "" "$IG_J" rings)
 $(product "Timeless Tradition Necklace Set" "\$160" images/brand/jewelry-poster-necklace.jpg images/jewelry/09.jpg '<i style="--c:#b8923a"></i>' New "$IG_J" sets)
 $(product "Sajaira Gift Box" "\$85" images/brand/gift-box.jpg images/brand/jewelry-tags.jpg '<i style="--c:#e88fb0"></i><i style="--c:#b8923a"></i>' "" "$IG_J" sets)
+$(product "Bangle Box — Size 2.10" "\$30" images/brand/bangles-box-sizes.jpg images/posters/bangles-box.jpg '<i style="--c:#2ea36b"></i><i style="--c:#e2b400"></i><i style="--c:#2b7bbf"></i><i style="--c:#a4232b"></i><span>+6 colours</span>' New "$IG_J" bangles)
   </div>
 </section>
 
@@ -440,13 +465,13 @@ $(product "Sajaira Gift Box" "\$85" images/brand/gift-box.jpg images/brand/jewel
 
 <section class="block tight" id="rings" style="padding-top:0">
   <div class="perks">
-    <div class="perk reveal"><strong>Free US shipping</strong><span>On every order over \$100, all fifty states.</span></div>
+    <div class="perk reveal"><strong>\$5 flat shipping</strong><span>Free on every order over \$100, all fifty states.</span></div>
     <div class="perk reveal" data-delay="1"><strong>Gift-ready</strong><span>Every set is tagged and boxed, ready to hand over.</span></div>
     <div class="perk reveal" data-delay="2"><strong>Live every Friday</strong><span>Fresh stock at 9pm EST on @sajaira.jewelry.</span></div>
   </div>
 </section>
 
-$(reels_section jreels "@sajaira.jewelry" "Jewelry on Reels" "parcels|Live sale|Friday parcels" "bridal-poster|Bridal|Timeless beauty" "saree-gold-model|Styling|Gold with saree" "kurta-lilac-poster|Styling|Bangles with lawn")
+$(reels_section jreels "@sajaira.jewelry" "Jewelry on Reels" "bangles-box|Bangles|Every girl's special treat" "parcels|Live sale|Friday parcels" "bridal-poster|Bridal|Timeless beauty" "saree-gold-model|Styling|Gold with saree" "kurta-lilac-poster|Styling|Bangles with lawn")
 
 $(connect)
 </main>
@@ -547,6 +572,93 @@ EOF
 footer
 } > clothing.html
 
+# ---------------------------------------------------------------- POLICY
+{
+head "Policies — Sajaira" "Shipping, returns, terms and privacy for Sajaira orders."
+header policy
+cat <<EOF
+<main>
+<section class="policy-hero">
+  <p class="eyebrow">Policies</p>
+  <h1>Terms &amp; Policies</h1>
+  <p>Everything you need to know about ordering from Sajaira — shipping, returns, payment and how we look after your details.</p>
+</section>
+<section class="block tight" style="padding-top:24px">
+  <div class="policy-wrap">
+    <nav class="policy-nav reveal">
+      <a href="#shipping">Shipping</a>
+      <a href="#returns">Returns &amp; Exchange</a>
+      <a href="#orders">Orders &amp; Payment</a>
+      <a href="#terms">Terms &amp; Conditions</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#faq">FAQs</a>
+    </nav>
+    <div class="policy-body">
+      <p class="updated">Last updated September 2026</p>
+
+      <section id="shipping">
+        <h2>Shipping</h2>
+        <div class="callout"><strong>Shipping is a flat \$5.</strong> Orders over \$100 ship free anywhere in the United States.</div>
+        <p>We ship from New York to all fifty states via USPS. Orders are dispatched within 2 business days of payment being confirmed, and typically arrive in 3–7 business days. You'll receive a tracking number by Instagram DM once your parcel is on its way.</p>
+        <h3>Pre-orders &amp; live-sale items</h3>
+        <p>Pieces reserved during a live sale are shipped together once payment for the full order is received. Pre-order items ship on the date stated at the time of ordering.</p>
+        <h3>Lost or damaged parcels</h3>
+        <p>Please check your parcel on arrival and message us within 48 hours with photos if anything has arrived damaged. Once a parcel is marked delivered by the carrier we are unable to replace it, so please use a secure delivery address.</p>
+      </section>
+
+      <section id="returns">
+        <h2>Returns &amp; Exchange</h2>
+        <div class="callout"><strong>No returns &amp; exchange.</strong> Please be sure about your selection before buying.</div>
+        <p>Because most of our pieces are single-stock, handpicked items, all sales are final. We photograph and film every piece ourselves so what you see is exactly what arrives — if you'd like extra photos, measurements or a colour check before ordering, just ask over DM and we'll happily send them.</p>
+        <h3>Wrong or faulty item</h3>
+        <p>If we've sent the wrong piece, or an item arrives with a manufacturing fault, message us within 48 hours of delivery with photos and we'll make it right with a replacement or refund.</p>
+        <h3>Sizing</h3>
+        <p>Bangles are sold by size (e.g. 2.4, 2.6, 2.8, 2.10). Please confirm your size before ordering — we're glad to help you measure. Clothing sizes follow the size chart shared for each piece.</p>
+      </section>
+
+      <section id="orders">
+        <h2>Orders &amp; Payment</h2>
+        <p>Orders are placed by DM on <a href="$IG_J" target="_blank" rel="noopener">@sajaira.jewelry</a> or <a href="$IG_C" target="_blank" rel="noopener">@sajaira.clothing</a>. Once we confirm availability and your total, you can pay via QR code, Zelle, Venmo, Cash App or PayPal — see <a href="about.html#payment">How to Pay</a>.</p>
+        <p>An item is reserved for you once payment is received. Reserved-but-unpaid items are released after 24 hours. Prices are in US dollars and exclude shipping unless stated.</p>
+      </section>
+
+      <section id="terms">
+        <h2>Terms &amp; Conditions</h2>
+        <p>By placing an order with Sajaira you agree to the terms on this page. Sajaira is a small, independently run business based in New York, USA.</p>
+        <ul>
+          <li>All product photos and videos are our own; colours may vary slightly between screens and in different lighting.</li>
+          <li>We reserve the right to cancel and refund an order if an item is found to be out of stock or was listed in error.</li>
+          <li>Content on this site and our social channels (photos, videos, text) belongs to Sajaira and may not be reused without permission.</li>
+          <li>These terms are governed by the laws of the State of New York.</li>
+        </ul>
+      </section>
+
+      <section id="privacy">
+        <h2>Privacy Policy</h2>
+        <p>We only collect what we need to fulfil your order: your name, shipping address, Instagram handle and payment confirmation. We never sell or share your details with third parties, and we don't store card details — payments are handled by the payment apps themselves.</p>
+        <p>If you subscribe to our newsletter, we'll only email you about new drops and live sales, and you can unsubscribe at any time. To have your details removed, message us on Instagram or email <a href="mailto:hello@sajaira.com">hello@sajaira.com</a>.</p>
+      </section>
+
+      <section id="faq">
+        <h2>FAQs</h2>
+        <h3>How do I order?</h3>
+        <p>DM us the piece on Instagram. We'll confirm it's available, send your total, and reserve it once payment is received.</p>
+        <h3>When are the live sales?</h3>
+        <p>Every Friday at 9pm EST on @sajaira.jewelry. New stock is shown live and reserved first-come, first-served.</p>
+        <h3>Do you ship outside the US?</h3>
+        <p>Not at the moment — we currently ship to US addresses only.</p>
+        <h3>Can I get more photos before I buy?</h3>
+        <p>Always. Ask over DM and we'll send extra photos, video or measurements.</p>
+      </section>
+    </div>
+  </div>
+</section>
+$(connect)
+</main>
+EOF
+footer
+} > policy.html
+
 # ---------------------------------------------------------------- ABOUT
 {
 head "About — Sajaira" "The story behind Sajaira, a New York based curator of Deshi jewelry and designer clothing."
@@ -622,15 +734,32 @@ cat <<EOF
   </div>
 </section>
 
-<section class="block" style="padding-top:0">
-  <div class="testimonial">
+$(reviews_section)
+
+<section class="block tight" id="payment">
+  <div class="payment">
     <div class="panel reveal">
-      <p class="eyebrow">Customer love</p>
-      <div class="stars" style="margin-top:14px">★★★★★</div>
-      <blockquote>&ldquo;Got the parcel — thank you soooo much for the bangles. Everything was perfect.&rdquo;</blockquote>
-      <cite>— A Sajaira customer, via Instagram DM</cite>
+      <p class="eyebrow">How to pay</p>
+      <h2>Simple, secure payment.</h2>
+      <p>Once you've reserved a piece over DM, pay by scanning the QR code or sending to any of the accounts below. Add your Instagram handle in the payment note so we can match it to your order.</p>
+      <div class="pay-methods">
+        <div class="pay-method"><strong>Zelle</strong><span>payments@sajaira.com</span></div>
+        <div class="pay-method"><strong>Venmo</strong><span>@sajaira</span></div>
+        <div class="pay-method"><strong>Cash App</strong><span>\$sajaira</span></div>
+        <div class="pay-method"><strong>PayPal</strong><span>paypal.me/sajaira</span></div>
+      </div>
+      <ol class="pay-steps">
+        <li><b>1</b><span>DM us the piece you want on Instagram — we'll confirm availability and your total (shipping \$5, free over \$100).</span></li>
+        <li><b>2</b><span>Pay by QR code or any method above, with your Instagram handle in the note.</span></li>
+        <li><b>3</b><span>Send us a screenshot of the payment and your shipping address. We ship within 2 business days.</span></li>
+      </ol>
     </div>
-    <figure class="reveal" data-delay="1"><img src="images/brand/customer-review.jpg" alt="Customer review screenshot" loading="lazy"></figure>
+    <div class="qr-card reveal" data-delay="1">
+      <img src="images/brand/payment-qr-placeholder.png" alt="Payment QR code">
+      <h3>Scan to pay</h3>
+      <p>Open your camera, scan the code and follow the link to complete your payment.</p>
+      <span class="tag">Placeholder — replace with your payment QR</span>
+    </div>
   </div>
 </section>
 
@@ -657,4 +786,4 @@ $(connect)
 EOF
 footer
 } > about.html
-echo "built: index $(wc -c < index.html)  jewelry $(wc -c < jewelry.html)  clothing $(wc -c < clothing.html)  about $(wc -c < about.html)"
+echo "built: index $(wc -c < index.html)  jewelry $(wc -c < jewelry.html)  clothing $(wc -c < clothing.html)  about $(wc -c < about.html)  policy $(wc -c < policy.html)"
