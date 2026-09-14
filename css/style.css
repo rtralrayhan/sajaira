@@ -402,6 +402,9 @@ section.block.tight { padding-top: 64px; padding-bottom: 64px; }
 .connect input:focus { outline: none; }
 .connect button { height: 48px; padding: 0 22px; background: var(--maroon-2); color: #fff; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 500; border-radius: 0 var(--radius) var(--radius) 0; transition: background .25s; }
 .connect button:hover { background: var(--ink); }
+.connect-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.connect-actions .btn { min-height: 48px; padding: 0 28px; }
+.connect-actions .btn svg { width: 16px; height: 16px; }
 .connect .note { font-family: var(--font-sans); font-size: 11px; color: rgba(255,255,255,.6); margin: 14px 0 0; }
 
 /* ---------- Footer (OKA columns + HEAD card) ---------- */

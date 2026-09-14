@@ -87,6 +87,22 @@ connect() { cat <<EOF
 EOF
 }
 
+connect_ig() { cat <<EOF
+<section class="connect">
+  <img src="images/brand/jewelry-tags.jpg" alt="">
+  <div class="inner">
+    <p class="eyebrow light reveal">New drops land on Instagram first</p>
+    <h2 class="reveal" data-delay="1">Follow us on Instagram</h2>
+    <p class="reveal" data-delay="2">Live sales every Friday, fresh stock all week. Follow both pages and DM us to reserve your favourite before it sells out.</p>
+    <div class="connect-actions reveal" data-delay="3">
+      <a class="btn btn-light" href="$IG_J" target="_blank" rel="noopener">$ICO_IG Sajaira Jewelry Instagram</a>
+      <a class="btn btn-outline-light" href="$IG_C" target="_blank" rel="noopener">$ICO_IG Sajaira Clothing Instagram</a>
+    </div>
+  </div>
+</section>
+EOF
+}
+
 footer() { cat <<EOF
 <footer class="site-footer">
   <div class="footer-card">
@@ -358,7 +374,7 @@ $(reels_section reels "Live on Instagram" "Latest Reels" "saree-pink-model|Saree
   </div>
 </section>
 
-$(connect)
+$(connect_ig)
 </main>
 EOF
 footer
