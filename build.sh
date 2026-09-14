@@ -474,7 +474,7 @@ $(product "Bangle Box — Size 2.10" "\$30" images/brand/bangles-box-sizes.jpg i
 
 $(reels_section jreels "@sajaira.jewelry" "Jewelry on Reels" "bangles-box|Bangles|Every girl's special treat" "parcels|Live sale|Friday parcels" "bridal-poster|Bridal|Timeless beauty" "saree-gold-model|Styling|Gold with saree" "kurta-lilac-poster|Styling|Bangles with lawn")
 
-$(connect)
+$(connect_ig)
 </main>
 EOF
 footer
@@ -567,7 +567,7 @@ $(reels_section creels "@sajaira.clothing" "Clothing on Reels" "kurta-green|Kurt
   </div>
 </section>
 
-$(connect)
+$(connect_ig)
 </main>
 EOF
 footer
@@ -656,7 +656,7 @@ cat <<EOF
     </div>
   </div>
 </section>
-$(connect)
+$(connect_ig)
 </main>
 EOF
 footer
@@ -786,7 +786,7 @@ $(reviews_section)
   </div>
 </section>
 
-$(connect)
+$(connect_ig)
 </main>
 EOF
 footer
