@@ -103,9 +103,6 @@
     $('.c-next', wrap)?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
   });
 
-  /* Wishlist hearts */
-  $$('.wish').forEach(b => b.addEventListener('click', (e) => { e.preventDefault(); b.classList.toggle('on'); }));
-
   /* Occasions hover */
   const occ = $('.occasions');
   if (occ) {
@@ -137,13 +134,36 @@
   const modal = $('.modal');
   if (modal) {
     const v = $('video', modal);
-    const open = () => { modal.classList.add('open'); document.body.classList.add('locked'); v.currentTime = 0; v.play(); };
+    const open = (src, portrait) => {
+      if (src && v.getAttribute('src') !== src) { v.setAttribute('src', src); v.load(); }
+      modal.classList.toggle('portrait', !!portrait);
+      modal.classList.add('open'); document.body.classList.add('locked'); v.currentTime = 0; v.muted = false; v.play().catch(() => {});
+    };
     const close = () => { modal.classList.remove('open'); document.body.classList.remove('locked'); v.pause(); };
-    $$('[data-play]').forEach(b => b.addEventListener('click', open));
+    $$('[data-play]').forEach(b => b.addEventListener('click', () => open(b.dataset.play, b.dataset.portrait !== undefined)));
     $('.close-x', modal).addEventListener('click', close);
     modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { close(); openDrawer && drawer && openDrawer(false); } });
   }
+
+  /* Reels: play muted while in view, click opens modal with sound */
+  $$('.reel').forEach(r => {
+    const v = $('video', r);
+    if (!v) return;
+    new IntersectionObserver((es) => es.forEach(e => {
+      if (e.isIntersecting) { v.play().then(() => r.classList.add('playing')).catch(() => {}); } else { v.pause(); r.classList.remove('playing'); }
+    }), { threshold: 0.4 }).observe(r);
+  });
+
+  /* Collection filter chips */
+  $$('.chips').forEach(ch => {
+    const grid = $(ch.dataset.target);
+    $$('button', ch).forEach(b => b.addEventListener('click', () => {
+      $$('button', ch).forEach(x => x.classList.toggle('active', x === b));
+      const f = b.dataset.filter;
+      $$('.product', grid).forEach(p => p.classList.toggle('hide', f !== 'all' && !(p.dataset.cat || '').split(' ').includes(f)));
+    }));
+  });
 
   /* Journal tabs */
   const journal = $('.journal');
