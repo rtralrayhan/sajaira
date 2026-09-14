@@ -144,6 +144,7 @@ footer() { cat <<EOF
       <div class="footer-brand">
         <a class="brand" href="index.html">Sajaira</a>
         <p>Deshi jewelry and designer clothing, handpicked in New York and shipped across the United States. Light up your world.</p>
+        <p><a href="mailto:hello@sajaira.com">hello@sajaira.com</a><br><a href="tel:+19176981950">+1 (917) 698 1950</a></p>
         <div class="socials">
           <a href="$IG_J" target="_blank" rel="noopener" aria-label="Instagram">$ICO_IG</a>
           <a href="$TT" target="_blank" rel="noopener" aria-label="TikTok">$ICO_TT</a>
@@ -581,7 +582,7 @@ cat <<EOF
 <section class="policy-hero">
   <p class="eyebrow">Policies</p>
   <h1>Terms &amp; Policies</h1>
-  <p>Everything you need to know about ordering from Sajaira — shipping, returns, payment and how we look after your details.</p>
+  <p>Everything you need to know about ordering from Sajaira — shipping, returns, payment and how we look after your details. Questions? Email <a href="mailto:hello@sajaira.com" style="border-bottom:1px solid var(--ink)">hello@sajaira.com</a> or call <a href="tel:+19176981950" style="border-bottom:1px solid var(--ink)">+1 (917) 698 1950</a>.</p>
 </section>
 <section class="block tight" style="padding-top:24px">
   <div class="policy-wrap">
@@ -608,7 +609,7 @@ cat <<EOF
 
       <section id="returns">
         <h2>Returns &amp; Exchange</h2>
-        <div class="callout"><strong>No returns &amp; exchange.</strong> Please be sure about your selection before buying.</div>
+        <div class="callout"><strong>No refund &nbsp;|&nbsp; No return &nbsp;|&nbsp; No exchange.</strong> Please be sure about your selection before buying.</div>
         <p>Because most of our pieces are single-stock, handpicked items, all sales are final. We photograph and film every piece ourselves so what you see is exactly what arrives — if you'd like extra photos, measurements or a colour check before ordering, just ask over DM and we'll happily send them.</p>
         <h3>Wrong or faulty item</h3>
         <p>If we've sent the wrong piece, or an item arrives with a manufacturing fault, message us within 48 hours of delivery with photos and we'll make it right with a replacement or refund.</p>
@@ -618,7 +619,7 @@ cat <<EOF
 
       <section id="orders">
         <h2>Orders &amp; Payment</h2>
-        <p>Orders are placed by DM on <a href="$IG_J" target="_blank" rel="noopener">@sajaira.jewelry</a> or <a href="$IG_C" target="_blank" rel="noopener">@sajaira.clothing</a>. Once we confirm availability and your total, you can pay via QR code, Zelle, Venmo, Cash App or PayPal — see <a href="about.html#payment">How to Pay</a>.</p>
+        <p>Orders are placed by DM on <a href="$IG_J" target="_blank" rel="noopener">@sajaira.jewelry</a> or <a href="$IG_C" target="_blank" rel="noopener">@sajaira.clothing</a>. Once we confirm availability and your total, you can pay with Zelle — scan the QR code or send to Sajaira LLC at (917) 698 1950. See <a href="about.html#payment">How to Pay</a>.</p>
         <p>An item is reserved for you once payment is received. Reserved-but-unpaid items are released after 24 hours. Prices are in US dollars and exclude shipping unless stated.</p>
       </section>
 
@@ -636,7 +637,7 @@ cat <<EOF
       <section id="privacy">
         <h2>Privacy Policy</h2>
         <p>We only collect what we need to fulfil your order: your name, shipping address, Instagram handle and payment confirmation. We never sell or share your details with third parties, and we don't store card details — payments are handled by the payment apps themselves.</p>
-        <p>If you subscribe to our newsletter, we'll only email you about new drops and live sales, and you can unsubscribe at any time. To have your details removed, message us on Instagram or email <a href="mailto:hello@sajaira.com">hello@sajaira.com</a>.</p>
+        <p>If you subscribe to our newsletter, we'll only email you about new drops and live sales, and you can unsubscribe at any time. To have your details removed, message us on Instagram, email <a href="mailto:hello@sajaira.com">hello@sajaira.com</a> or call <a href="tel:+19176981950">+1 (917) 698 1950</a>.</p>
       </section>
 
       <section id="faq">
@@ -647,6 +648,8 @@ cat <<EOF
         <p>Every Friday at 9pm EST on @sajaira.jewelry. New stock is shown live and reserved first-come, first-served.</p>
         <h3>Do you ship outside the US?</h3>
         <p>Not at the moment — we currently ship to US addresses only.</p>
+        <h3>How can I reach you?</h3>
+        <p>Instagram DM is fastest. You can also email <a href="mailto:hello@sajaira.com">hello@sajaira.com</a> or call / text <a href="tel:+19176981950">+1 (917) 698 1950</a>.</p>
         <h3>Can I get more photos before I buy?</h3>
         <p>Always. Ask over DM and we'll send extra photos, video or measurements.</p>
       </section>
@@ -741,24 +744,25 @@ $(reviews_section)
     <div class="panel reveal">
       <p class="eyebrow">How to pay</p>
       <h2>Simple, secure payment.</h2>
-      <p>Once you've reserved a piece over DM, pay by scanning the QR code or sending to any of the accounts below. Add your Instagram handle in the payment note so we can match it to your order.</p>
+      <p>We accept payment by <strong>Zelle</strong>. Once you've reserved a piece over DM, scan the QR code or send to the details below, and add your Instagram handle in the memo so we can match it to your order.</p>
       <div class="pay-methods">
-        <div class="pay-method"><strong>Zelle</strong><span>payments@sajaira.com</span></div>
-        <div class="pay-method"><strong>Venmo</strong><span>@sajaira</span></div>
-        <div class="pay-method"><strong>Cash App</strong><span>\$sajaira</span></div>
-        <div class="pay-method"><strong>PayPal</strong><span>paypal.me/sajaira</span></div>
+        <div class="pay-method"><strong>Zelle name</strong><span>SAJAIRA LLC</span></div>
+        <div class="pay-method"><strong>Zelle phone</strong><span><a href="tel:+19176981950">(917) 698 1950</a></span></div>
+        <div class="pay-method"><strong>Account</strong><span>Bus Complete Chk (…6622)</span></div>
+        <div class="pay-method"><strong>Support</strong><span><a href="mailto:hello@sajaira.com">hello@sajaira.com</a></span></div>
       </div>
       <ol class="pay-steps">
         <li><b>1</b><span>DM us the piece you want on Instagram — we'll confirm availability and your total (shipping \$5, free over \$100).</span></li>
-        <li><b>2</b><span>Pay by QR code or any method above, with your Instagram handle in the note.</span></li>
+        <li><b>2</b><span>Pay with Zelle by scanning the QR code or sending to (917) 698 1950, with your Instagram handle in the memo.</span></li>
         <li><b>3</b><span>Send us a screenshot of the payment and your shipping address. We ship within 2 business days.</span></li>
       </ol>
+      <p style="margin-top:22px;font-size:12px;color:var(--maroon);font-weight:600;letter-spacing:.04em">No refund &nbsp;|&nbsp; No return &nbsp;|&nbsp; No exchange</p>
     </div>
     <div class="qr-card reveal" data-delay="1">
-      <img src="images/brand/payment-qr-placeholder.png" alt="Payment QR code">
-      <h3>Scan to pay</h3>
-      <p>Open your camera, scan the code and follow the link to complete your payment.</p>
-      <span class="tag">Placeholder — replace with your payment QR</span>
+      <img src="images/brand/payment-qr.jpg" alt="Zelle QR code for Sajaira LLC">
+      <h3>Scan to pay with Zelle</h3>
+      <p>Open your banking app, choose Zelle and scan the code — it's registered to Sajaira LLC.</p>
+      <a class="tag" href="images/brand/payment-flyer.jpg" target="_blank" rel="noopener">View full payment card</a>
     </div>
   </div>
 </section>
@@ -768,11 +772,12 @@ $(reviews_section)
     <div class="contact-panel reveal">
       <p class="eyebrow">Get in touch</p>
       <h2>Questions, custom orders, or just to say hello.</h2>
-      <p>The fastest way to reach us is a DM on Instagram — we reply to every message. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>DM us on Instagram, email <a href="mailto:hello@sajaira.com" style="border-bottom:1px solid var(--ink)">hello@sajaira.com</a> or call / text <a href="tel:+19176981950" style="border-bottom:1px solid var(--ink)">+1 (917) 698 1950</a> for any support or help — we reply to every message.</p>
       <dl>
         <dt>Jewelry</dt><dd><a href="$IG_J" target="_blank" rel="noopener">@sajaira.jewelry</a></dd>
         <dt>Clothing</dt><dd><a href="$IG_C" target="_blank" rel="noopener">@sajaira.clothing</a></dd>
         <dt>Email</dt><dd><a href="mailto:hello@sajaira.com">hello@sajaira.com</a></dd>
+        <dt>Phone</dt><dd><a href="tel:+19176981950">+1 (917) 698 1950</a></dd>
         <dt>Studio</dt><dd>New York, USA — by appointment</dd>
         <dt>Shipping</dt><dd>Free across the US on orders over \$100</dd>
       </dl>
