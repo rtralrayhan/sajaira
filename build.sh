@@ -6,6 +6,7 @@ IG_J="https://www.instagram.com/sajaira.jewelry/"
 IG_C="https://www.instagram.com/sajaira.clothing/"
 TT="https://www.tiktok.com/@sajaira04"
 FB="https://www.facebook.com/SajairaJewelry/"
+MONO='<svg class="mono" viewBox="0 0 40 52" aria-hidden="true"><defs><clipPath id="mc"><rect x="1" y="1" width="38" height="50" rx="3"/></clipPath></defs><g clip-path="url(#mc)" stroke="#b8923a" stroke-width=".9" opacity=".95"><g transform="translate(20 26)"><line x1="0" y1="0" x2="0" y2="-40"/><line x1="0" y1="0" x2="14" y2="-38"/><line x1="0" y1="0" x2="26" y2="-30"/><line x1="0" y1="0" x2="36" y2="-16"/><line x1="0" y1="0" x2="40" y2="0"/><line x1="0" y1="0" x2="36" y2="16"/><line x1="0" y1="0" x2="26" y2="30"/><line x1="0" y1="0" x2="14" y2="38"/><line x1="0" y1="0" x2="0" y2="40"/><line x1="0" y1="0" x2="-14" y2="38"/><line x1="0" y1="0" x2="-26" y2="30"/><line x1="0" y1="0" x2="-36" y2="16"/><line x1="0" y1="0" x2="-40" y2="0"/><line x1="0" y1="0" x2="-36" y2="-16"/><line x1="0" y1="0" x2="-26" y2="-30"/><line x1="0" y1="0" x2="-14" y2="-38"/></g></g><rect x="1" y="1" width="38" height="50" rx="3" fill="none" stroke="currentColor" stroke-width="1.4"/><text x="20" y="43" text-anchor="middle" font-family="Bodoni Moda, Didot, serif" font-weight="600" font-size="44" fill="currentColor">S</text></svg>'
 ICO_ARROW='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg>'
 ICO_LEFT='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>'
 ICO_RIGHT='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3l5 5-5 5"/></svg>'
@@ -24,10 +25,10 @@ head() { cat <<EOF
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>$1</title>
 <meta name="description" content="$2">
-<link rel="icon" href="images/jewelry/profile.jpg">
+<link rel="icon" href="images/brand/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=DM+Sans:wght@400;500;600;700&family=Bodoni+Moda:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=$V">
 </head>
 <body>
@@ -46,7 +47,7 @@ cat <<EOF
       <a href="jewelry.html"$( [ "$a" = jewelry ] && echo ' class="active"')>Jewelry</a>
       <a href="clothing.html"$( [ "$a" = clothing ] && echo ' class="active"')>Clothing</a>
     </nav>
-    <a class="brand" href="index.html">Sajaira</a>
+    <a class="brand" href="index.html">$MONO<span>Sajaira</span></a>
     <div class="nav-utils">
       <a class="text$( [ "$a" = about ] && echo ' active')" href="about.html">About</a>
       <a class="icon-btn" href="$IG_J" target="_blank" rel="noopener" aria-label="Instagram">$ICO_IG<span class="text">Instagram</span></a>
@@ -56,7 +57,7 @@ cat <<EOF
 <div class="drawer" aria-hidden="true">
   <div class="scrim"></div>
   <div class="panel">
-    <a class="brand" href="index.html">Sajaira</a>
+    <a class="brand" href="index.html">$MONO<span>Sajaira</span></a>
     <button class="close-x" aria-label="Close menu">$ICO_X</button>
     <nav>
       <a href="index.html">Home</a>
@@ -93,7 +94,7 @@ connect_ig() { cat <<EOF
   <img src="images/brand/jewelry-tags.jpg" alt="">
   <div class="inner">
     <p class="eyebrow light reveal">New drops land on Instagram first</p>
-    <h2 class="reveal" data-delay="1">Follow us on Instagram</h2>
+    <h2 class="reveal" data-delay="1">Follow us on <em>Instagram</em></h2>
     <p class="reveal" data-delay="2">Live sales every Friday, fresh stock all week. Follow both pages and DM us to reserve your favourite before it sells out.</p>
     <div class="connect-actions reveal" data-delay="3">
       <a class="btn btn-light" href="$IG_J" target="_blank" rel="noopener">$ICO_IG Sajaira Jewelry Instagram</a>
@@ -119,7 +120,7 @@ reviews_section() { cat <<EOF
 <section class="block" id="reviews">
   <div class="carousel-wrap">
     <div class="section-head reveal">
-      <div><p class="eyebrow">Customer love</p><h2 class="title-lg">What our customers say</h2></div>
+      <div><p class="eyebrow">Customer love</p><h2 class="title-lg">What our customers <em>say</em></h2></div>
       <div class="arrows"><button class="arrow-btn c-prev" aria-label="Previous">$ICO_LEFT</button><button class="arrow-btn c-next" aria-label="Next">$ICO_RIGHT</button></div>
     </div>
     <div class="carousel reviews">
@@ -142,7 +143,8 @@ footer() { cat <<EOF
   <div class="footer-card">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="index.html">Sajaira</a>
+        <a class="brand" href="index.html">$MONO<span>Sajaira</span></a>
+        <p class="tagline">Light up your world</p>
         <p>Deshi jewelry and designer clothing, handpicked in New York and shipped across the United States. Light up your world.</p>
         <p><a href="mailto:hello@sajaira.com">hello@sajaira.com</a><br><a href="tel:+19176981950">+1 (917) 698 1950</a></p>
         <div class="socials">
@@ -153,7 +155,7 @@ footer() { cat <<EOF
       </div>
       <div><h4>Shop</h4><ul><li><a href="jewelry.html">Jewelry</a></li><li><a href="clothing.html">Clothing</a></li><li><a href="clothing.html#kids">Kids</a></li><li><a href="index.html#occasions">Occasions</a></li><li><a href="index.html#arrivals">New Arrivals</a></li></ul></div>
       <div><h4>Help</h4><ul><li><a href="about.html#contact">Contact</a></li><li><a href="about.html#payment">How to Pay</a></li><li><a href="policy.html#shipping">Shipping</a></li><li><a href="policy.html#returns">Returns &amp; Exchange</a></li><li><a href="policy.html#faq">FAQs</a></li></ul></div>
-      <div><h4>About</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="index.html#journal">Journal</a></li><li><a href="index.html#reels">Live Sales</a></li><li><a href="index.html#reviews">Reviews</a></li></ul></div>
+      <div><h4>About</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="index.html#events">Events &amp; melas</a></li><li><a href="index.html#reels">Live Sales</a></li><li><a href="index.html#reviews">Reviews</a></li></ul></div>
       <div><h4>Follow</h4><ul><li><a href="$IG_J" target="_blank" rel="noopener">@sajaira.jewelry</a></li><li><a href="$IG_C" target="_blank" rel="noopener">@sajaira.clothing</a></li><li><a href="$TT" target="_blank" rel="noopener">TikTok @sajaira04</a></li><li><a href="$FB" target="_blank" rel="noopener">Facebook</a></li></ul></div>
     </div>
     <div class="footer-bottom">
@@ -226,11 +228,11 @@ cat <<EOF
 <main>
 <section class="hero" aria-label="Featured">
   <div class="slide"><img src="images/brand/saree-pier.jpg" alt="">
-    <div class="slide-content"><p class="eyebrow light">The Festive Edit 2026</p><h1>Light Up Your World</h1><p class="sub">Handpicked Deshi jewelry and designer clothing, curated in New York and shipped across the United States.</p><a class="link-u" href="clothing.html">Shop the Edit</a></div></div>
+    <div class="slide-content"><p class="eyebrow light">The Festive Edit 2026</p><h1>Light up <em>your</em> world</h1><p class="sub">Handpicked Deshi jewelry and designer clothing, curated in New York and shipped across the United States.</p><a class="link-u" href="clothing.html">Shop the Edit</a></div></div>
   <div class="slide"><img src="images/brand/bangles-wrist.jpg" alt="">
-    <div class="slide-content"><p class="eyebrow light">Jewelry</p><h1>Grace in Every Color</h1><p class="sub">Glass bangles, statement earrings and cocktail rings — the sparkle of home, delivered to your door.</p><a class="link-u" href="jewelry.html">Shop Jewelry</a></div></div>
+    <div class="slide-content"><p class="eyebrow light">Jewelry</p><h1>Grace in <em>every</em> colour</h1><p class="sub">Glass bangles, statement earrings and cocktail rings — the sparkle of home, delivered to your door.</p><a class="link-u" href="jewelry.html">Shop Jewelry</a></div></div>
   <div class="slide"><img src="images/brand/kurta-blue-model.jpg" alt="">
-    <div class="slide-content"><p class="eyebrow light">Clothing</p><h1>Timeless Tradition, Modern You</h1><p class="sub">Embroidered kurta sets, designer sarees and lawn suits in the season's colours.</p><a class="link-u" href="clothing.html">Shop Clothing</a></div></div>
+    <div class="slide-content"><p class="eyebrow light">Clothing</p><h1>Timeless tradition, <em>modern</em> you</h1><p class="sub">Embroidered kurta sets, designer sarees and lawn suits in the season's colours.</p><a class="link-u" href="clothing.html">Shop Clothing</a></div></div>
   <div class="hero-ui">
     <span class="hero-count">01 / 03</span>
     <div class="hero-dots"></div>
@@ -241,7 +243,7 @@ cat <<EOF
 
 <section class="block tight">
   <div class="section-head reveal">
-    <div><p class="eyebrow">Discover</p><h2 class="title-lg">Shop by Category</h2></div>
+    <div><p class="eyebrow">Discover</p><h2 class="title-lg">Shop by <em>category</em></h2></div>
     <a class="link-arrow" href="jewelry.html">Shop All $ICO_ARROW</a>
   </div>
   <div class="cats">
@@ -259,7 +261,7 @@ cat <<EOF
     <div class="feature-panel">
       <div class="top">
         <p class="eyebrow">Festive Edit 2026</p>
-        <h2>Where tradition meets the everyday.</h2>
+        <h2>Where tradition meets <em>the everyday.</em></h2>
         <p class="desc">Our new season brings hand-embroidered kurta sets, statement gold and glass bangles in every colour — made to be worn from the mehendi to the morning after.</p>
       </div>
       <div class="bottom">
@@ -280,7 +282,7 @@ cat <<EOF
 <section class="block" id="arrivals">
   <div class="carousel-wrap">
     <div class="section-head reveal">
-      <div><p class="eyebrow">Just landed</p><h2 class="title-lg">New Arrivals</h2></div>
+      <div><p class="eyebrow">Just landed</p><h2 class="title-lg">New arrivals</h2></div>
       <div class="arrows"><button class="arrow-btn c-prev" aria-label="Previous">$ICO_LEFT</button><button class="arrow-btn c-next" aria-label="Next">$ICO_RIGHT</button></div>
     </div>
     <div class="carousel">
@@ -316,7 +318,7 @@ $(product "Purple Zari Saree" "\$145" images/brand/saree-purple-poster.jpg image
   <video autoplay muted loop playsinline poster="images/posters/fabric-embroidered.jpg"><source src="video/brand/fabric-embroidered.mp4" type="video/mp4"></video>
   <div class="overlay">
     <p class="eyebrow light reveal">Clothing</p>
-    <h2 class="reveal" data-delay="1">The Saree Edit</h2>
+    <h2 class="reveal" data-delay="1">The <em>saree</em> edit</h2>
     <p class="lede reveal" data-delay="2">Explore our new season.</p>
     <a class="btn btn-light reveal" data-delay="3" href="clothing.html#sarees">Explore Now</a>
     <button class="play reveal" data-delay="3" data-play="video/brand/saree-pink-model.mp4" data-portrait><i>$ICO_PLAY</i>Play video</button>
@@ -333,39 +335,55 @@ $(reels_section reels "Live on Instagram" "Latest Reels" "saree-pink-model|Saree
   <div class="campaign-text reveal">
     <div>
       <span class="pill">Campaign</span>
-      <h2>A Season of Light</h2>
+      <h2>A season of <em>light</em></h2>
       <p>Our Festive Edit 2026 unfolds as A Season of Light — where the wedding tent softens into a living room, and every evening becomes a reason to dress up. Photographed in New York with the pieces we love most.</p>
     </div>
     <a class="link-u" href="clothing.html">Discover the Collection</a>
   </div>
 </section>
 
-<section class="block tight" id="journal">
-  <div class="journal reveal">
-    <div class="journal-head">
-      <h2>Journal</h2>
-      <div class="tabs"><button class="active" data-filter="all">Read All</button><button data-filter="campaign">Campaigns</button><button data-filter="lookbook">Lookbooks</button><button data-filter="story">Stories</button></div>
-    </div>
-    <div class="journal-row" data-cat="campaign">
-      <article><span class="pill">Campaign</span><h3>A Season of Light</h3><p>Festive Edit 2026 unfolds as A Season of Light, where every evening becomes a reason to dress up and the pieces do the talking.</p><a class="link-u" href="#">Read More</a></article>
-      <article><span class="pill">Lookbook</span><h3>The Lawn Edit</h3><p>Printed lawn suits in lilac, grey and sky blue — six ways to wear this season's sets from brunch to baraat.</p><a class="link-u" href="clothing.html#lawn">Read More</a></article>
-      <figure><img src="images/brand/kurta-floral-flat.jpg" alt="" loading="lazy"></figure>
-    </div>
-    <div class="journal-row" data-cat="lookbook">
-      <article><span class="pill">Lookbook</span><h3>Bangles, Stacked</h3><p>Glass, zari and metal — how we layer bangles for weight, colour and the perfect chime.</p><a class="link-u" href="jewelry.html#bangles">Read More</a></article>
-      <article><span class="pill">Story</span><h3>Why We Photograph Everything Ourselves</h3><p>What you see on our page is exactly what arrives at your door. A short note on honest photography.</p><a class="link-u" href="about.html">Read More</a></article>
+<section class="block tight" id="events">
+  <div class="section-head reveal">
+    <div><p class="eyebrow">Meet us in person</p><h2 class="title-lg">Find us at the <em>mela</em></h2></div>
+    <a class="link-arrow" href="$IG_J" target="_blank" rel="noopener">Upcoming dates on Instagram $ICO_ARROW</a>
+  </div>
+  <div class="events">
+    <article class="event reveal">
       <figure><img src="images/brand/bangles-multi.jpg" alt="" loading="lazy"></figure>
-    </div>
-    <div class="journal-row" data-cat="story">
-      <article><span class="pill">Story</span><h3>Live on Fridays</h3><p>Every Friday at 9pm we go live with fresh stock. Here's how the live sales work and how to reserve a piece.</p><a class="link-u" href="#reels">Read More</a></article>
-      <article><span class="pill">Story</span><h3>From a Single Suitcase</h3><p>How Sajaira went from one suitcase of bangles to two Instagram shops and a studio in New York.</p><a class="link-u" href="about.html">Read More</a></article>
+      <div class="body">
+        <span class="pill">Eid Mela</span>
+        <h3>Eid Mela</h3>
+        <span class="meta">Every Eid &middot; Jackson Heights, Queens</span>
+        <p>Our biggest stall of the year. Glass bangles in every colour, chandelier earrings and festive sets — try them on in person and take them home the same day.</p>
+      </div>
+    </article>
+    <article class="event reveal" data-delay="1">
+      <figure><img src="images/brand/saree-pier.jpg" alt="" loading="lazy"></figure>
+      <div class="body">
+        <span class="pill">Boishakhi Mela</span>
+        <h3>Boishakhi Mela</h3>
+        <span class="meta">Pohela Boishakh &middot; New York</span>
+        <p>We celebrate Bengali New Year with sarees, kurta sets and lawn suits in the season's brightest colours. Come say hello and pick up something new for the year.</p>
+      </div>
+    </article>
+    <article class="event reveal" data-delay="2">
       <figure><img src="images/brand/gift-box.jpg" alt="" loading="lazy"></figure>
-    </div>
+      <div class="body">
+        <span class="pill">Community</span>
+        <h3>Bangladesh community events</h3>
+        <span class="meta">Year-round &middot; NYC &amp; tri-state</span>
+        <p>From cultural nights to fundraisers, we set up wherever the Bangladeshi community gathers. Follow us on Instagram to see where we'll be next.</p>
+      </div>
+    </article>
+  </div>
+  <div class="event-cta reveal">
+    <div><h3>Hosting a mela or community event?</h3><p>We'd love to bring a Sajaira stall to it. Message us on Instagram or email hello@sajaira.com with the date and venue.</p></div>
+    <a class="btn" href="mailto:hello@sajaira.com?subject=Sajaira%20stall%20at%20our%20event">Invite us to your event</a>
   </div>
 </section>
 
 <section class="marquee-sec">
-  <div class="marquee"><div class="marquee-track"><span>New Drop Every Friday —</span><span>New Drop Every Friday —</span><span>New Drop Every Friday —</span><span>New Drop Every Friday —</span></div></div>
+  <div class="marquee"><div class="marquee-track"><span>New drop every Friday —</span><span>New drop every Friday —</span><span>New drop every Friday —</span><span>New drop every Friday —</span></div></div>
   <figure class="marquee-product"><img src="images/brand/gift-box.jpg" alt="Sajaira gift box"></figure>
   <div class="marquee-caption reveal"><a class="link-u" href="$IG_J" target="_blank" rel="noopener">Join the live sale</a></div>
 </section>
@@ -375,7 +393,7 @@ $(reviews_section)
 <section class="block" style="padding-top:0">
   <div class="story">
     <div class="reveal">
-      <h2>A Little Piece of Home</h2>
+      <h2>A little piece of <em>home</em></h2>
       <p>We started as a way to bring the jewelry and clothing we grew up loving to the Deshi community across the United States. One suitcase, a kitchen-table photo studio and a lot of DMs later, Sajaira is two Instagram shops and a small studio in New York.</p>
       <p>Every piece is handpicked, photographed by us and shipped from New York — free across the US on orders over \$100.</p>
       <a class="link-arrow" href="about.html">Find out more $ICO_ARROW</a>
@@ -414,7 +432,7 @@ cat <<EOF
 <section class="collection-hero">
   <img src="images/brand/bangles-wrist.jpg" alt="">
   <div class="inner">
-    <div><p class="eyebrow light">Collection 01</p><h1>Jewelry</h1><p class="sub">Glass bangles in every colour, chandelier earrings and cocktail rings — the sparkle of home, delivered to your door.</p></div>
+    <div><p class="eyebrow light">Collection 01</p><h1><em>Jewelry</em></h1><p class="sub">Glass bangles in every colour, chandelier earrings and cocktail rings — the sparkle of home, delivered to your door.</p></div>
     <span class="count">13 pieces &middot; DM to order</span>
   </div>
 </section>
@@ -444,7 +462,7 @@ $(product "Bangle Box — Size 2.10" "\$30" images/brand/bangles-box-sizes.jpg i
   <div class="split reveal">
     <div class="panel">
       <p class="eyebrow">Bangles</p>
-      <h2>Every colour of the celebration.</h2>
+      <h2>Every colour of <em>the celebration.</em></h2>
       <p>Glass, zari and metal bangles sold in sets — pink, emerald, sapphire, mustard and gold. Tell us your wrist size and the outfit, and we'll match a set to it.</p>
       <a class="btn btn-dark" href="$IG_J" target="_blank" rel="noopener">DM to order</a>
     </div>
@@ -456,7 +474,7 @@ $(product "Bangle Box — Size 2.10" "\$30" images/brand/bangles-box-sizes.jpg i
   <div class="split flip reveal">
     <div class="panel">
       <p class="eyebrow">Earrings &amp; sets</p>
-      <h2>Timeless tradition, modern you.</h2>
+      <h2>Timeless tradition, <em>modern you.</em></h2>
       <p>Exquisite craftsmanship and heritage you can wear. Chandelier earrings, layered necklace sets and statement pieces for the wedding season.</p>
       <a class="btn btn-dark" href="$IG_J" target="_blank" rel="noopener">DM to order</a>
     </div>
@@ -489,7 +507,7 @@ cat <<EOF
 <section class="collection-hero">
   <video autoplay muted loop playsinline poster="images/posters/saree-red-fabric.jpg"><source src="video/brand/saree-red-fabric.mp4" type="video/mp4"></video>
   <div class="inner">
-    <div><p class="eyebrow light">Collection 02</p><h1>Clothing</h1><p class="sub">Designer sarees, hand-embroidered kurta sets, printed lawn suits and Punjabi for the little ones.</p></div>
+    <div><p class="eyebrow light">Collection 02</p><h1><em>Clothing</em></h1><p class="sub">Designer sarees, hand-embroidered kurta sets, printed lawn suits and Punjabi for the little ones.</p></div>
     <span class="count">14 styles &middot; DM to order</span>
   </div>
 </section>
@@ -520,7 +538,7 @@ $(product "Kids Yellow Anarkali" "\$60" images/posters/kids-yellow.jpg images/po
   <div class="split reveal">
     <div class="panel">
       <p class="eyebrow">Sarees</p>
-      <h2>Grace in every drape.</h2>
+      <h2>Grace in <em>every</em> drape.</h2>
       <p>Tissue, organza and zari sarees photographed on real bodies in real light. Blouse pieces included; stitching available on request.</p>
       <a class="btn btn-dark" href="$IG_C" target="_blank" rel="noopener">DM to order</a>
       <button class="play" data-play="video/brand/saree-pink-model.mp4" data-portrait style="display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-top:18px"><i style="width:28px;height:28px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center"><svg viewBox="0 0 10 10" style="width:9px;height:9px;fill:var(--ink);margin-left:2px"><path d="M1 0l8 5-8 5z"/></svg></i>Watch the drape</button>
@@ -533,7 +551,7 @@ $(product "Kids Yellow Anarkali" "\$60" images/posters/kids-yellow.jpg images/po
   <div class="split flip reveal">
     <div class="panel">
       <p class="eyebrow">Kurta sets</p>
-      <h2>Timeless black, golden grace.</h2>
+      <h2>Timeless black, <em>golden grace.</em></h2>
       <p>Hand-embroidered three-piece sets — kurta, trousers and dupatta — in sizes S to XL. Soft, comfortable fabrics made for long evenings.</p>
       <a class="btn btn-dark" href="$IG_C" target="_blank" rel="noopener">DM to order</a>
     </div>
@@ -545,7 +563,7 @@ $(product "Kids Yellow Anarkali" "\$60" images/posters/kids-yellow.jpg images/po
   <div class="split reveal">
     <div class="panel">
       <p class="eyebrow">Lawn suits</p>
-      <h2>Printed, breezy, everyday.</h2>
+      <h2>Printed, breezy, <em>everyday.</em></h2>
       <p>Unstitched and ready-to-wear lawn in lilac, grey, sky and floral prints. The easiest thing to throw on for brunch, work and Eid mornings.</p>
       <a class="btn btn-dark" href="$IG_C" target="_blank" rel="noopener">DM to order</a>
     </div>
@@ -559,7 +577,7 @@ $(reels_section creels "@sajaira.clothing" "Clothing on Reels" "kurta-green|Kurt
   <div class="split flip reveal">
     <div class="panel">
       <p class="eyebrow">Little Charm</p>
-      <h2>Punjabi for the little ones.</h2>
+      <h2>Punjabi for <em>the little ones.</em></h2>
       <p>Traditional Punjabi and anarkali sets for kids — because the smallest guests deserve the best outfit at the wedding.</p>
       <a class="btn btn-dark" href="$IG_C" target="_blank" rel="noopener">DM to order</a>
     </div>
@@ -581,7 +599,7 @@ cat <<EOF
 <main>
 <section class="policy-hero">
   <p class="eyebrow">Policies</p>
-  <h1>Terms &amp; Policies</h1>
+  <h1>Terms &amp; <em>policies</em></h1>
   <p>Everything you need to know about ordering from Sajaira — shipping, returns, payment and how we look after your details. Questions? Email <a href="mailto:hello@sajaira.com" style="border-bottom:1px solid var(--ink)">hello@sajaira.com</a> or call <a href="tel:+19176981950" style="border-bottom:1px solid var(--ink)">+1 (917) 698 1950</a>.</p>
 </section>
 <section class="block tight" style="padding-top:24px">
@@ -670,7 +688,7 @@ cat <<EOF
 <main>
 <section class="page-hero">
   <img src="images/brand/saree-pier.jpg" alt="">
-  <div class="inner"><p class="eyebrow light">About Sajaira</p><h1>Our Story</h1><p class="sub">Made for the moments that sparkle.</p></div>
+  <div class="inner"><p class="eyebrow light">About Sajaira</p><h1>Our <em>story</em></h1><p class="sub">Made for the moments that sparkle</p></div>
 </section>
 
 <section class="block">
@@ -693,7 +711,7 @@ cat <<EOF
   <div class="story">
     <div class="reveal">
       <p class="eyebrow" style="margin-bottom:14px">How it began</p>
-      <h2>From a Single Suitcase</h2>
+      <h2>From a single <em>suitcase</em></h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
@@ -705,17 +723,17 @@ cat <<EOF
   <div class="story flip">
     <div class="reveal">
       <p class="eyebrow" style="margin-bottom:14px">How we work</p>
-      <h2>Photographed by Us, Always</h2>
+      <h2>Photographed by us, <em>always</em></h2>
       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
       <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-      <a class="link-arrow" href="index.html#journal">Read the journal $ICO_ARROW</a>
+      <a class="link-arrow" href="index.html#events">See where to find us $ICO_ARROW</a>
     </div>
     <figure class="color reveal" data-delay="1"><img src="images/brand/jewelry-tags.jpg" alt="" loading="lazy"></figure>
   </div>
 </section>
 
 <section class="block tight" style="padding-top:0">
-  <div class="section-head reveal"><div><p class="eyebrow">What we stand for</p><h2 class="title-lg">Three things we never compromise on.</h2></div></div>
+  <div class="section-head reveal"><div><p class="eyebrow">What we stand for</p><h2 class="title-lg">Three things we <em>never</em> compromise on.</h2></div></div>
   <div class="values">
     <div class="value reveal"><div class="num">01</div><h3>Handpicked pieces</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Every bangle, earring and saree is chosen by us before it is offered to you.</p></div>
     <div class="value reveal" data-delay="1"><div class="num">02</div><h3>Honest photography</h3><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur. What you see on our page is exactly what arrives at your door.</p></div>
@@ -743,7 +761,7 @@ $(reviews_section)
   <div class="payment">
     <div class="panel reveal">
       <p class="eyebrow">How to pay</p>
-      <h2>Simple, secure payment.</h2>
+      <h2>Simple, <em>secure</em> payment.</h2>
       <p>We accept payment by <strong>Zelle</strong>. Once you've reserved a piece over DM, scan the QR code or send to the details below, and add your Instagram handle in the memo so we can match it to your order.</p>
       <div class="pay-methods">
         <div class="pay-method"><strong>Zelle name</strong><span>SAJAIRA LLC</span></div>
@@ -771,7 +789,7 @@ $(reviews_section)
   <div class="contact">
     <div class="contact-panel reveal">
       <p class="eyebrow">Get in touch</p>
-      <h2>Questions, custom orders, or just to say hello.</h2>
+      <h2>Questions, custom orders, or just to say <em>hello.</em></h2>
       <p>DM us on Instagram, email <a href="mailto:hello@sajaira.com" style="border-bottom:1px solid var(--ink)">hello@sajaira.com</a> or call / text <a href="tel:+19176981950" style="border-bottom:1px solid var(--ink)">+1 (917) 698 1950</a> for any support or help — we reply to every message.</p>
       <dl>
         <dt>Jewelry</dt><dd><a href="$IG_J" target="_blank" rel="noopener">@sajaira.jewelry</a></dd>
